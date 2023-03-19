@@ -8,5 +8,6 @@ export default defineConfig({
     host: true
   },
   integrations: [tailwind()],
-  site: 'https://otakuryo.github.io'
+  site: 'https://otakuryo.github.io',
+  base: '/astro-birthday/'
 });
