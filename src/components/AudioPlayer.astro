@@ -1,0 +1,41 @@
+---
+const {audioSrc} = Astro.props as Props;
+---
+<div class="audio-player gap-2">
+    <audio loop class="audio" src={audioSrc}></audio>
+    <button class="play-pause-btn" data-is-playing="0"></button>
+    <div class="progress-bar"></div>
+</div>
+
+<style>
+    .audio-player {
+      display: flex;
+      align-items: center;
+    }
+    
+    .audio {
+      display: none;
+    }
+    
+    .play-pause-btn {
+      min-width: 20%;
+      height: 50px;
+      background-image: url('/img/play-button-arrowhead.png'); /* Cambia play.svg por la imagen del botón de play */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .play-pause-btn.playing {
+      background-image: url('/img/pause-button-arrowhead.png'); /* Cambia pause.svg por la imagen del botón de pause */
+    }
+    
+    .progress-bar {
+      height: 5px;
+      width: 80%;
+      background-color: #ddd;
+    }
+    
+</style>

@@ -1,0 +1,69 @@
+---
+import Modal from "@components/Modal.astro";
+import "@fontsource/inter";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  heroImage?: string;
+  imageAlt?: string;
+}
+
+const defaultMeta = {
+  title: "Nereida Feliz Cumpleños",
+  description: "Este es un regalo para que no nos olvides!",
+  image: "/banner.png",
+  imageAlt: "Regalo sorpresa!!!",
+};
+
+const { title = defaultMeta.title, description = defaultMeta.description, heroImage = defaultMeta.image, imageAlt = defaultMeta.imageAlt } = Astro.props as Props;
+const canonicalURL = new URL(Astro.url).href;
+
+const classBodyDark = "dark:scrollbar-thumb-zinc-600 dark:scrollbar-track-zinc-800 dark:bg-zinc-900 dark:text-white";
+const classBody = "scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-300  font-inter selection:bg-blue-500/70 text-xl";
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#8f6b5e">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={heroImage} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:site_name" content="NoFuss Astro" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta name="twitter:site" content="@lancerossdev" />
+    <meta name="twitter:creator" content="@lancerossdev" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={heroImage} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index" />
+    <meta name="author" content="Lance Ross" />
+
+    <link rel="stylesheet" href="/css/style.css">
+
+  </head>
+  <body class={classBody}>
+    <main class="m-auto p-3 max-w-4xl md:p-8 min-h-screen">
+      <slot />
+    </main>
+
+    <div class="fixed bottom-1 left-1">
+      <Modal></Modal>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card.astro";
+import Modal from "@components/Modal.astro";
+
+class DiscClass {
+	imgSrc: string;
+	year: string;
+	title: string;
+	audioSrc: string;
+
+	constructor( imgSrc:string, year:string, title:string, audioSrc: string) {
+		this.imgSrc = imgSrc;
+		this.year = year;
+		this.title = title;
+		this.audioSrc = audioSrc;
+	}
+}
+
+const discs: Array<DiscClass> = [
+	new DiscClass("/img/aesthetic-anime-food-backgrounds-free-picture.jpg", "2021", "Titulo 1", "/sounds/music-is-pryces-main-version-02-54-3083.mp3"),
+	new DiscClass("/img/aesthetic-anime-food-backgrounds-free-picture.jpg", "2022", "Titulo 2", "/sounds/music-is-pryces-main-version-02-54-3083.mp3"),
+	new DiscClass("/img/aesthetic-anime-food-backgrounds-free-picture.jpg", "2023", "Titulo 3", "/sounds/music-is-pryces-main-version-02-54-3083.mp3")
+]
+---
+
+<Layout>
+	<h1 class="w-100 text-center my-3">Feliz cumpleaños</h1>
+
+	<div class="flex flex-wrap gap-2 justify-center">
+		{
+			discs.map( (disc) => (
+				<Card discImgSrc={disc.imgSrc} discYear={disc.year} discTitle={disc.title} discAudioSrc={disc.audioSrc}></Card>
+			))
+		}
+	</div>
+
+	<div class="hidden text-sm text-gray-400">
+		<ul>
+			<li>Music from #Uppbeat (free for Creators!):</li>
+			<li>https://uppbeat.io/t/pryces/music-is</li>
+			<li>License code: YY1BSGYEXEYZSFXS</li>
+		</ul>
+	</div>
+
+</Layout>
