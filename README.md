@@ -1,4 +1,8 @@
-# Astro Starter Kit: Minimal
+# IMPORTANT! Astro Testing
+
+This project is for demo purposes
+
+## Astro Starter Kit: Minimal
 
 ```
 npm create astro@latest -- --template minimal
