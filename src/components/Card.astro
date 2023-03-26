@@ -23,17 +23,18 @@ const {discImgSrc, discYear, discTitle, discAudioSrc} = Astro.props as Props;
     cardPlayer.forEach(el => {
         
         const playPauseBtn = el.querySelector('.play-pause-btn');
+        const playPauseDisc = el.querySelector('div.disc');
         const audio = el.querySelector('.audio');
         const progressBar = el.querySelector('.progress-bar');
         const disc = el.querySelector('.disc');
 
-        playPauseBtn.addEventListener('click', (e) => {
+        const onClickPlay = () => {
             
-            let isPlaying = e.target.dataset.isPlaying
+            let isPlaying = playPauseBtn.dataset.isPlaying
 
             if (isPlaying == 1) {
                 audio.pause();
-                e.target.dataset.isPlaying = 0;
+                playPauseBtn.dataset.isPlaying = 0;
 
                 playPauseBtn.classList.remove('playing');
                 disc.classList.add('disc-pause');
@@ -41,14 +42,17 @@ const {discImgSrc, discYear, discTitle, discAudioSrc} = Astro.props as Props;
                 el.dataset.state = "paused";
             } else {
                 audio.play();
-                e.target.dataset.isPlaying = 1;
+                playPauseBtn.dataset.isPlaying = 1;
 
                 playPauseBtn.classList.add('playing');
                 disc.classList.remove('disc-pause');
 
                 el.dataset.state = "playing";
             }
-        });
+        };
+
+        playPauseBtn.addEventListener('click', onClickPlay);
+        playPauseDisc.addEventListener('click', onClickPlay)
         
         audio.addEventListener('timeupdate', () => {
             const progress = (audio.currentTime / audio.duration) * 80;
