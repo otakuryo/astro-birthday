@@ -1,0 +1,54 @@
+<canvas id="canvas" class="h-full w-screen absolute"></canvas>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js" is:raw></script>
+<script type="text/javascript" is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+    let targetEl = document.getElementById('canvas');
+
+    var confettiEl = {
+        "target": targetEl,
+        "max": "50",
+        "size": "2",
+        "animate": true,
+        "props": [
+            "line",
+            {
+                "type": "svg",
+                "src": "img/mandarina-small.svg",
+                "size": 25,
+                "weight": 0.3
+            }
+        ],
+        "colors": [
+            [
+                165,
+                104,
+                246
+            ],
+            [
+                230,
+                61,
+                135
+            ],
+            [
+                0,
+                199,
+                228
+            ],
+            [
+                253,
+                214,
+                126
+            ]
+        ],
+        "clock": "30",
+        "rotate": true,
+        "start_from_edge": false,
+        "respawn": true
+    };
+    
+    var canvas1 = new ConfettiGenerator(confettiEl);
+    canvas1.render();
+    })
+</script>

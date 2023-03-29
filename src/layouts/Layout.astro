@@ -1,4 +1,5 @@
 ---
+import Confetti from "@components/Confetti.astro";
 import Modal from "@components/Modal.astro";
 import "@fontsource/inter";
 
@@ -58,7 +59,8 @@ const classBody = "scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-
 
   </head>
   <body class={classBody}>
-    <main class="m-auto p-3 max-w-4xl md:p-8 min-h-screen">
+    <main class="m-auto max-w-4xl min-h-screen relative">
+      <Confetti></Confetti>
       <slot />
     </main>
 
