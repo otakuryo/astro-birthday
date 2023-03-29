@@ -7,6 +7,32 @@ const {audioSrc} = Astro.props as Props;
     <div class="progress-bar"></div>
 </div>
 
+<script src="js/confetti.min.js" is:inline></script>
+<script>
+  function buildConfettiBtn() {
+    let btns = document.querySelectorAll('.play-pause-btn');
+
+    btns.forEach((btn,index) => {
+       btn.id = `play-btn-pause-${index}`;
+    })
+
+    // Pass in the id of an element
+    let confetti = new Confetti(`play-btn-pause-4`);
+
+    // Edit given parameters
+    confetti.setCount(75);
+    confetti.setSize(1);
+    confetti.setPower(25);
+    confetti.setFade(false);
+    confetti.destroyTarget(false);
+
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    buildConfettiBtn();
+  })
+</script>
+
 <style>
     .audio-player {
       display: flex;
