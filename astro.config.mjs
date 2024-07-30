@@ -8,6 +8,5 @@ export default defineConfig({
     host: true
   },
   integrations: [tailwind()],
-  site: 'https://otakuryo.github.io',
-  base: '/astro-birthday/'
+  site: 'https://yupedo.netlify.app'
 });

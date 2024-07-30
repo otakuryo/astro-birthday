@@ -1,8 +1,9 @@
 ---
+import { Props } from "astro";
 import AudioPlayer from "./AudioPlayer.astro";
 import Disc from "./Disc.astro";
 
-const {discImgSrc, discYear, discTitle, discAudioSrc} = Astro.props as Props;
+const {discImgSrc, discYear, discTitle, discAudioSrc, discIndex} = Astro.props as Props;
 
 ---
 
@@ -12,7 +13,7 @@ const {discImgSrc, discYear, discTitle, discAudioSrc} = Astro.props as Props;
         <p class="text-gray-700 text-base text-sm" contenteditable="true">{discYear}</p>
         <h3 class="text-base font-bold" contenteditable="true">{discTitle}</h3>
 
-        <AudioPlayer audioSrc={discAudioSrc}></AudioPlayer> 
+        <AudioPlayer audioSrc={discAudioSrc} discIndex={discIndex}></AudioPlayer> 
 
     </div>
 </div>
@@ -29,6 +30,9 @@ const {discImgSrc, discYear, discTitle, discAudioSrc} = Astro.props as Props;
         const disc = el.querySelector('.disc');
 
         const onClickPlay = () => {
+
+
+            if(!playPauseBtn || !audio || !disc) return;
             
             let isPlaying = playPauseBtn.dataset.isPlaying
 

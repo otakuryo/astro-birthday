@@ -18,23 +18,31 @@ class DiscClass {
 }
 
 const discs: Array<DiscClass> = [
-	new DiscClass("img/albert_1_vinilo.jpg", "Disco 1", "??", "sounds/sonido-1.mp3"),
-	new DiscClass("img/alberto_1_vinilo.jpg", "Disco 2", "??", "sounds/sonido-2.mp3"),
-	new DiscClass("img/aline_1_vinilo.jpg", "Disco 3", "??", "sounds/sonido-3.mp3"),
-	new DiscClass("img/carolina_1_vinilo.jpg", "Disco 4", "??", "sounds/sonido-4.mp3"),
-	new DiscClass("img/javi_1_vinilo.jpg", "Disco 4", "??", "sounds/sonido-2.mp3"),
+	new DiscClass("img/albert_1_vinilo.jpg", "Disco 1", "??", "sounds/farts-yubero/Corujo_PEDO_1.mp3"),
+	new DiscClass("img/albert_1_vinilo.jpg", "Disco 1", "??", "sounds/farts-yubero/Corujo_PEDO_2.mp3"),
+	// new DiscClass("img/alberto_1_vinilo.jpg", "Disco 2", "??", "sounds/sonido-2.mp3"),
+	// new DiscClass("img/aline_1_vinilo.jpg", "Disco 3", "??", "sounds/sonido-3.mp3"),
+	new DiscClass("img/carolina_1_vinilo.jpg", "Disco 4", "??", "sounds/farts-yubero/Carol_PEDOS_1.mp3"),
+	new DiscClass("img/carolina_1_vinilo.jpg", "Disco 4", "??", "sounds/farts-yubero/Carol_PEDOS_2.mp3"),
+	new DiscClass("img/javi_1_vinilo.jpg", "Disco 4", "??", "sounds/farts-yubero/Javi_PedoemianRapsody.mp3"),
+	new DiscClass("img/lluis_1_vinilo.jpg", "Disco 4", "??", "sounds/farts-yubero/Lluis.mp3"),
 ]
 ---
 
 <Layout>
 	<h1 class="w-100 text-center my-3" style="height: 10rem;">
-		<img src="img/feliz-cumpleanyos.png" alt="feliz cumpleaños" class="h-full w-full m-auto object-contain"/>
+		<img src="img/banner.png" alt="feliz cumpleaños" class="h-full w-full m-auto object-contain"/>
 	</h1>
 
 	<div class="flex flex-wrap gap-2 justify-center">
 		{
-			discs.map( (disc) => (
-				<Card discImgSrc={disc.imgSrc} discYear={disc.year} discTitle={disc.title} discAudioSrc={disc.audioSrc}></Card>
+			discs.map( (disc, index) => (
+				<Card	discImgSrc={disc.imgSrc} 
+						discYear={disc.year} 
+						discTitle={disc.title} 
+						discIndex={index}
+						discAudioSrc={disc.audioSrc}>
+				</Card>
 			))
 		}
 	</div>

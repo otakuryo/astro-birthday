@@ -1,33 +1,43 @@
 ---
-const {audioSrc} = Astro.props as Props;
+import { Props } from 'astro';
+
+const {audioSrc, discIndex} = Astro.props as Props;
+
+const audioId=`play-btn-pause-${discIndex}`;
+
 ---
 <div class="audio-player gap-2">
     <audio loop class="audio" src={audioSrc}></audio>
-    <button class="play-pause-btn" data-is-playing="0"></button>
+    <button class="play-pause-btn" data-is-playing="0" id={audioId}></button>
     <div class="progress-bar"></div>
 </div>
 
 <script src="js/confetti.min.js" is:inline></script>
 <script>
-  function buildConfettiBtn() {
-    let btns = document.querySelectorAll('.play-pause-btn');
 
-    btns.forEach((btn,index) => {
-       btn.id = `play-btn-pause-${index}`;
-    })
+  function buildConfettiAction(id: string){
 
-    // Pass in the id of an element
-    let confetti = new Confetti(`play-btn-pause-4`);
+      // Pass `in the id of an element
+      let confettiAction = new Confetti(id);
 
-    // Edit given parameters
-    confetti.setCount(75);
-    confetti.setSize(1);
-    confetti.setPower(25);
-    confetti.setFade(false);
-    confetti.destroyTarget(false);
+      // Edit given parameters
+      confettiAction.setCount(75);
+      confettiAction.setSize(1);
+      confettiAction.setPower(25);
+      confettiAction.setFade(false);
+      confettiAction.destroyTarget(false);
 
   }
+  function buildConfettiBtn() {
 
+    let btns = document.querySelectorAll('.play-pause-btn')
+
+    btns.forEach(btn => {
+      buildConfettiAction(btn.id)
+    })
+
+  }
+  
   document.addEventListener('DOMContentLoaded', () => {
     buildConfettiBtn();
   })
