@@ -2,7 +2,7 @@
 const {image, color, useColor} = Astro.props as Props;
 let bgImage = "";
 if(useColor) {
-    bgImage = `background-color: '${color}';`;
+    bgImage = `background-color: ${color};`;
 }else {
     bgImage = `background-image: url('${image}');`;
 }
