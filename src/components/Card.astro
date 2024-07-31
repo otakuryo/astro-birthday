@@ -3,13 +3,13 @@ import { Props } from "astro";
 import AudioPlayer from "./AudioPlayer.astro";
 import Disc from "./Disc.astro";
 
-const {discImgSrc, discYear, discTitle, discAudioSrc, discIndex} = Astro.props as Props;
+const {discImgSrc, discYear, discTitle, discAudioSrc, discIndex, discColor, discUseColor} = Astro.props as Props;
 
 ---
 
 <div data-state="paused" class="container-card-player bg-white rounded-lg overflow-hidden hover:shadow-lg border border-gray-200 transition max-w-max">
     <div class="px-3 px-md-6 py-2 py-md-4">
-        <Disc image={discImgSrc} />
+        <Disc image={discImgSrc} color={discColor} useColor={discUseColor} />
         <p class="text-gray-700 text-base text-sm" contenteditable="true">{discYear}</p>
         <h3 class="text-base font-bold" contenteditable="true">{discTitle}</h3>
 

@@ -1,6 +1,11 @@
 ---
-const {image} = Astro.props as Props;
-const bgImage = `background-image: url('${image}');`;
+const {image, color, useColor} = Astro.props as Props;
+let bgImage = "";
+if(useColor) {
+    bgImage = `background-color: '${color}';`;
+}else {
+    bgImage = `background-image: url('${image}');`;
+}
 ---
 
 <div class="disc disc-play disc-pause my-3" style={bgImage}>

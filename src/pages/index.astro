@@ -8,25 +8,28 @@ class DiscClass {
 	year: string;
 	title: string;
 	audioSrc: string;
+	color: string;
+	useColor: boolean = true;
 
-	constructor( imgSrc:string, year:string, title:string, audioSrc: string) {
+	constructor( imgSrc:string, year:string, title:string, audioSrc: string, color: string) {
 		this.imgSrc = imgSrc;
 		this.year = year;
 		this.title = title;
 		this.audioSrc = audioSrc;
+		this.color = color;
 	}
 }
 
 const discs: Array<DiscClass> = [
-	new DiscClass('img/lluis_1_vinilo.jpg', 'Disco 0', "??", "sounds/farts-yubero/alpaca-scream-strong.mp3"),
-	new DiscClass("img/aline_1_vinilo.jpg", "Disco 1", "??", "sounds/farts-yubero/Corujo_PEDO_1.mp3"),
-	new DiscClass("img/javi_1_vinilo.jpg", "Disco 2", "??", "sounds/farts-yubero/Corujo_PEDO_2.mp3"),
-	// new DiscClass("img/alberto_1_vinilo.jpg", "Disco 2", "??", "sounds/sonido-2.mp3"),
-	// new DiscClass("img/aline_1_vinilo.jpg", "Disco 3", "??", "sounds/sonido-3.mp3"),
-	new DiscClass("img/alberto_1_vinilo.jpg", "Disco 3", "??", "sounds/farts-yubero/Carol_PEDOS_1.mp3"),
-	new DiscClass("img/albert_1_vinilo.jpg", "Disco 4", "??", "sounds/farts-yubero/Carol_PEDOS_2.mp3"),
-	new DiscClass("img/lluis_1_vinilo.jpg", "Disco 5", "??", "sounds/farts-yubero/Javi_PedoemianRapsody.mp3"),
-	new DiscClass("img/alberto_1_vinilo.jpg", "Disco 6", "??", "sounds/farts-yubero/Lluis.mp3"),
+	new DiscClass('img/lluis_1_vinilo.jpg', 'Harley-Davidson', "??", "sounds/farts-yubero/alpaca-scream-strong.mp3", "#FF6600"),
+	new DiscClass("img/aline_1_vinilo.jpg", "Honda", "??", "sounds/farts-yubero/Corujo_PEDO_1.mp3", "#DA251D"),
+	new DiscClass("img/javi_1_vinilo.jpg", "Yamaha", "??", "sounds/farts-yubero/Corujo_PEDO_2.mp3", "#004C91"),
+	// new DiscClass("img/alberto_1_vinilo.jpg", "KTM", "??", "sounds/sonido-2.mp3"),
+	// new DiscClass("img/aline_1_vinilo.jpg", "BMW Motorrad", "??", "sounds/sonido-3.mp3"),
+	new DiscClass("img/alberto_1_vinilo.jpg", "Kawasaki", "??", "sounds/farts-yubero/Carol_PEDOS_1.mp3", "#4CBB17"),
+	new DiscClass("img/albert_1_vinilo.jpg", "Suzuki", "??", "sounds/farts-yubero/Carol_PEDOS_2.mp3", "#0033A0"),
+	new DiscClass("img/lluis_1_vinilo.jpg", "Ducati", "??", "sounds/farts-yubero/Javi_PedoemianRapsody.mp3", "#D21E25"),
+	new DiscClass("img/alberto_1_vinilo.jpg", "Triumph", "??", "sounds/farts-yubero/Lluis.mp3", "#0E2A43"),
 ]
 ---
 
@@ -42,6 +45,8 @@ const discs: Array<DiscClass> = [
 						discYear={disc.year} 
 						discTitle={disc.title} 
 						discIndex={index}
+						discColor={disc.color}
+						discUseColor={disc.useColor}
 						discAudioSrc={disc.audioSrc}>
 				</Card>
 			))
